@@ -3,10 +3,18 @@
   <head>
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="twittler.css">
   </head>
   <body>
-
-    <button id = "showNewTweets">Refresh Feed</button>
+    <div id = "userProfile">
+      <h1>Twittler</h1>
+    </div>
+    <div id = "menuBar">
+      <ul>
+        <li><p id = "home"><a href="#">Home</a></p></li>
+        <li><p id = "showNewTweets"><a href="#">Refresh Feed</a></p></li>
+      </ul>
+    </div>
     <div id = "body"></div>
 
     <script>
@@ -20,22 +28,26 @@
          var refreshFeed = function(){
           while(index < streams.home.length){
             var tweet = streams.home[index];
-            var $tweet = $('<div class = "newTweet"><p></p></div>');
-            $tweet.find('p').html('@' +'<a class = otherUser id = ' + tweet.user + ' href = #' + '>' + tweet.user + '<a/>'+ ': ' + tweet.message + ' sent ' + tweet.created_at);
+            var $tweet = $('<div class = "newTweet"><ul><li><p id = "userName" ></p></li><li><p id = "newMessage"></p></li></ul></div>');
+            $tweet.find('#userName').html('@' +'<a class = otherUser id = ' + tweet.user + ' href = #' + '>' + tweet.user + '<a/> : sent ' + tweet.created_at);
+            $tweet.find('#newMessage').html(tweet.message)
             $tweet.prependTo($body);
             index += 1;
-          }
+          };
+          setTimeout(refreshFeed, 100);
         };
         refreshFeed();
 
         var $button = $('#showNewTweets');
         $button.on('click', function(){ refreshFeed() });
 
-        $('body').on('click', '.otherUser' , function(){
-          console.log(this);
-        })
+         $('body').on('click', '.otherUser' , function(){
+          $body.find(this.id)
+        });
+       
       });
 
     </script>
   </body>
+
 </html>
