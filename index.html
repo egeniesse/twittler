@@ -9,13 +9,15 @@
     <div id = "userProfile">
       <h1>Twittler</h1>
     </div>
-    <div class = "feedBody" id = "userFeed"></div>
-    <div class = "feedBody" id = "body"></div>
+    <div id = "body">
+      <div class = "feedBody" id = "userFeed"></div>
+      <div class = "feedBody" id = "mainFeed"></div>
+    </div>
 
     <script>
 
       $(document).ready(function(){
-        var $body = $('#body');
+        var $body = $('#mainFeed');
         $body.html('');
         var index = 0;
         
