@@ -9,13 +9,8 @@
     <div id = "userProfile">
       <h1>Twittler</h1>
     </div>
-    <div id = "menuBar">
-      <ul>
-        <li><p id = "home"><a href="#">Home</a></p></li>
-        <li><p id = "showNewTweets"><a href="#">Refresh Feed</a></p></li>
-      </ul>
-    </div>
-    <div id = "body"></div>
+    <div class = "feedBody" id = "userFeed"></div>
+    <div class = "feedBody" id = "body"></div>
 
     <script>
 
@@ -28,8 +23,8 @@
          var refreshFeed = function(){
           while(index < streams.home.length){
             var tweet = streams.home[index];
-            var $tweet = $('<div class = "newTweet"><ul><li><p id = "userName" ></p></li><li><p id = "newMessage"></p></li></ul></div>');
-            $tweet.find('#userName').html('@' +'<a class = otherUser id = ' + tweet.user + ' href = #' + '>' + tweet.user + '<a/> : sent ' + tweet.created_at);
+            var $tweet = $('<div class = "newTweet" id = ' + tweet.user + '><ul><li><p class = "name"></p></li><li><p id = "newMessage"></p></li></ul></div>');
+            $tweet.find('.name').html('@' +'<a class = otherUser href = #' + '>' + tweet.user + '<a/> : sent ' + tweet.created_at);
             $tweet.find('#newMessage').html(tweet.message)
             $tweet.prependTo($body);
             index += 1;
@@ -38,13 +33,17 @@
         };
         refreshFeed();
 
-        var $button = $('#showNewTweets');
-        $button.on('click', function(){ refreshFeed() });
 
          $('body').on('click', '.otherUser' , function(){
-          $body.find(this.id)
+          $('#userFeed').empty();
+          var userFeed = $("[id=" + this.closest("div").id + "]").get();
+          var tempArr = userFeed.slice();
+          console.log(tempArr)
+
+          for(var i = 0; i < tempArr.length; i++){
+            $(tempArr[i]).clone().appendTo("#userFeed");
+          };
         });
-       
       });
 
     </script>

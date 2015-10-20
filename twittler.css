@@ -24,11 +24,18 @@ ul {
 }
 
 
-#body {
+.feedBody {
 	width: 600px;
 	border-top: 2px solid #D3D3DE;
-	margin: 20px auto 0px auto;
+	margin: 20px 20px;
 
+}
+#userFeed {
+	float: left;
+
+}
+#body {
+	float: left;
 }
 
 .newTweet{
