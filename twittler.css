@@ -32,15 +32,22 @@ ul {
 	width: 550px;
 	border-top: 2px solid #D3D3DE;
 	margin: 25px 25px;
+	float: left;
 
 }
 #userFeed {
 	float: left;
+	display : none;
 
 }
 #mainFeed {
 	float: left;
 }
+.selectedUser {
+	background: #FFFFFF;
+	height: 400px;
+}
+
 
 .newTweet{
 	background: #FFFFFF;
