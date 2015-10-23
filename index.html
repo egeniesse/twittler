@@ -15,7 +15,6 @@
         <div class = "selectedUser newTweet">
           <div class = "userTitle">
             <h2>Welcome @BayAreaPacker</h2>
-
           </div>
           <form class = "tweetForm">
             <label for = "userTweet">What's on your mind?</label>
@@ -24,11 +23,10 @@
           </form>
 
         </div>
-        <div id = "userFeed"></div>
-
       </div>
       
       <div class = "feedBody" id = "mainFeed"></div>
+      <div class = "feedBody" id = "userFeed"></div>
     </div>
 
     <script>
@@ -37,8 +35,6 @@
         var $body = $('#mainFeed');
         $body.html('');
         var index = 0;
-        
-
          var refreshFeed = function(){
           while(index < streams.home.length){
             var tweet = streams.home[index];
@@ -52,14 +48,26 @@
         };
 
         refreshFeed();
+
+        $(".tweetForm").find("input").on("click", function(){
+          var tweet = {};
+          tweet.user = "BayAreaPacker";
+          tweet.message = $('#userTweet').val();
+          tweet.created_at = new Date();
+            if (tweet.message){
+              streams.home.push(tweet);
+            $('#userTweet').val('');
+            }
+          
+        })
         $("button").on('click', function(){
           $("#userFeed").hide();
-          $(".selectedUser").show();
+          $("#mainFeed").show();
         })
 
         $('body').on('click', '.otherUser' , function(){
           
-          $(".selectedUser").hide();
+          $("#mainFeed").hide();
           $('#userFeed').empty().show();
 
           

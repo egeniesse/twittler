@@ -46,6 +46,8 @@ ul {
 }
 
 
+
+
 .newTweet{
 	background: #FFFFFF;
 	padding: 6px;
@@ -63,7 +65,10 @@ ul {
 
 .tweetForm label {
 	display: block;
-	margin: auto;
+	text-align: center;
+	padding-bottom: 5px;
+	font-size: 14pt;
+	font-weight: bold;
 }
 #userTweet {
 	resize: none;
@@ -74,4 +79,11 @@ ul {
 	font-size: 12pt;
 	padding: 5px;
 
+}
+.userTitle h2{
+	display: block;
+	margin: 15px auto 45px auto;
+	text-align: center;
+	font-size: 20pt;
+	border-bottom: 2px solid #D3D3DE;
 }
