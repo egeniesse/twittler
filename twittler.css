@@ -10,6 +10,13 @@ body {
 ul {
 	list-style-type: none;
 }
+input {
+	font-size: 14pt;
+	padding: 3px;
+	margin: 4px 0 0 4px;
+	background: #F8F8FF;
+	border: 1px solid #D3D3DE;
+}
 #body{
 	width: 1200px;
 	margin: auto;

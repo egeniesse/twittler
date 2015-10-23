@@ -9,7 +9,7 @@
     <div id = "userProfile">
       <h1>Twittler</h1>
     </div>
-    <button>Home</button>
+    <input id = "home" type = "button" value = "Home">
     <div id = "body">
       <div class = "feedBody">
         <div class = "selectedUser newTweet">
@@ -60,7 +60,7 @@
             }
           
         })
-        $("button").on('click', function(){
+        $("#home").on('click', function(){
           $("#userFeed").hide();
           $("#mainFeed").show();
         })
