@@ -35,25 +35,21 @@ ul {
 	float: left;
 
 }
-#userFeed {
-	float: left;
-	display : none;
 
-}
 #mainFeed {
 	float: left;
 }
 .selectedUser {
+
 	background: #FFFFFF;
-	height: 400px;
+
 }
 
 
 .newTweet{
 	background: #FFFFFF;
-	
 	padding: 6px;
-	margin-top: 10px;
+	margin: 10px;
 	border: 2px solid #D3D3DE;
 	border-radius: 5px;
 }
@@ -62,5 +58,20 @@ ul {
 }
 #newMessage{
 	margin: 20px 0 20px 30px;
+
+}
+
+.tweetForm label {
+	display: block;
+	margin: auto;
+}
+#userTweet {
+	resize: none;
+	width: 95%;
+	height: 30px;
+	display: block;
+	margin: 5px auto;
+	font-size: 12pt;
+	padding: 5px;
 
 }

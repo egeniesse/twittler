@@ -9,20 +9,25 @@
     <div id = "userProfile">
       <h1>Twittler</h1>
     </div>
+    <button>Home</button>
     <div id = "body">
       <div class = "feedBody">
         <div class = "selectedUser newTweet">
-          <form>
+          <div class = "userTitle">
+            <h2>Welcome @BayAreaPacker</h2>
+
+          </div>
+          <form class = "tweetForm">
             <label for = "userTweet">What's on your mind?</label>
             <textarea id = "userTweet"></textarea>
             <input type = "submit" value = "Post">
-
           </form>
 
         </div>
+        <div id = "userFeed"></div>
 
       </div>
-      <div class = "feedBody" id = "userFeed" style.display = "none"></div>
+      
       <div class = "feedBody" id = "mainFeed"></div>
     </div>
 
@@ -45,17 +50,24 @@
           };
           setTimeout(refreshFeed, 100);
         };
+
         refreshFeed();
+        $("button").on('click', function(){
+          $("#userFeed").hide();
+          $(".selectedUser").show();
+        })
 
+        $('body').on('click', '.otherUser' , function(){
+          
+          $(".selectedUser").hide();
+          $('#userFeed').empty().show();
 
-         $('body').on('click', '.otherUser' , function(){
-          $('#userFeed').empty();
+          
           var userFeed = $("[id=" + this.closest("div").id + "]").get();
-          var tempArr = userFeed.slice();
-          console.log(tempArr)
-
-          for(var i = 0; i < tempArr.length; i++){
-            $(tempArr[i]).clone().appendTo("#userFeed");
+          
+          for(var i = 0; i < userFeed.length; i++){
+          
+            $(userFeed[i]).clone().appendTo("#userFeed");
           };
         });
       });
